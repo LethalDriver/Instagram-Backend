@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Node("User")
-public class UserEntity implements UserDetails {
+public class User implements UserDetails {
     @Id
     @GeneratedValue
     private Long id;
@@ -18,9 +18,9 @@ public class UserEntity implements UserDetails {
     private String firstName;
     private String lastName;
     @Relationship(type = "FOLLOWS", direction = Relationship.Direction.OUTGOING)
-    private List<UserEntity> isFollowing;
+    private List<User> isFollowing;
     @Relationship(type = "FOLLOWS", direction = Relationship.Direction.INCOMING)
-    private List<UserEntity> followers;
+    private List<User> followers;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
