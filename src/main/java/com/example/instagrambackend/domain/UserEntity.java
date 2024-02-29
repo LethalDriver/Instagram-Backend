@@ -18,7 +18,7 @@ public class UserEntity implements UserDetails {
     private String firstName;
     private String lastName;
     @Relationship(type = "FOLLOWS", direction = Relationship.Direction.OUTGOING)
-    private List<UserEntity> followedBy;
+    private List<UserEntity> isFollowing;
     @Relationship(type = "FOLLOWS", direction = Relationship.Direction.INCOMING)
     private List<UserEntity> followers;
     @Override
