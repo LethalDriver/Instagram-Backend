@@ -21,6 +21,14 @@ public class User implements UserDetails {
     private List<User> isFollowing;
     @Relationship(type = "FOLLOWS", direction = Relationship.Direction.INCOMING)
     private List<User> followers;
+    @Relationship(type = "MAKES_POST", direction = Relationship.Direction.OUTGOING)
+    private List<Post> posts;
+    @Relationship(type = "LIKES", direction = Relationship.Direction.OUTGOING)
+    private List<Post> likedPosts;
+    @Relationship(type = "COMMENTS", direction = Relationship.Direction.OUTGOING)
+    private List<Comment> comments;
+    @Relationship(type = "HAS_FEED", direction = Relationship.Direction.OUTGOING)
+    private Feed feed;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
